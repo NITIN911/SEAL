@@ -1,0 +1,140 @@
+# Nmap 7.91 scan initiated Thu Aug 19 18:39:44 2021 as: nmap -v -A -sC -Pn -oN seal.txt 10.10.10.250
+Nmap scan report for 10.10.10.250
+Host is up (0.23s latency).
+Not shown: 997 closed ports
+PORT     STATE SERVICE    VERSION
+22/tcp   open  ssh        OpenSSH 8.2p1 Ubuntu 4ubuntu0.2 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   3072 4b:89:47:39:67:3d:07:31:5e:3f:4c:27:41:1f:f9:67 (RSA)
+|   256 04:a7:4f:39:95:65:c5:b0:8d:d5:49:2e:d8:44:00:36 (ECDSA)
+|_  256 b4:5e:83:93:c5:42:49:de:71:25:92:71:23:b1:85:54 (ED25519)
+443/tcp  open  ssl/http   nginx 1.18.0 (Ubuntu)
+| http-methods: 
+|_  Supported Methods: OPTIONS GET HEAD POST
+|_http-server-header: nginx/1.18.0 (Ubuntu)
+|_http-title: Seal Market
+| ssl-cert: Subject: commonName=seal.htb/organizationName=Seal Pvt Ltd/stateOrProvinceName=London/countryName=UK
+| Issuer: commonName=seal.htb/organizationName=Seal Pvt Ltd/stateOrProvinceName=London/countryName=UK
+| Public Key type: rsa
+| Public Key bits: 2048
+| Signature Algorithm: sha256WithRSAEncryption
+| Not valid before: 2021-05-05T10:24:03
+| Not valid after:  2022-05-05T10:24:03
+| MD5:   9c4f 991a bb97 192c df5a c513 057d 4d21
+|_SHA-1: 0de4 6873 0ab7 3f90 c317 0f7b 872f 155b 305e 54ef
+| tls-alpn: 
+|_  http/1.1
+| tls-nextprotoneg: 
+|_  http/1.1
+8080/tcp open  http-proxy
+| fingerprint-strings: 
+|   FourOhFourRequest: 
+|     HTTP/1.1 401 Unauthorized
+|     Date: Thu, 19 Aug 2021 07:53:16 GMT
+|     Set-Cookie: JSESSIONID=node0thukwfj1930d1i4g1q0l0564b40.node0; Path=/; HttpOnly
+|     Expires: Thu, 01 Jan 1970 00:00:00 GMT
+|     Content-Type: text/html;charset=utf-8
+|     Content-Length: 0
+|   GetRequest: 
+|     HTTP/1.1 401 Unauthorized
+|     Date: Thu, 19 Aug 2021 07:53:15 GMT
+|     Set-Cookie: JSESSIONID=node01wmn1qbzuesnm1nlrhn2gerb4j38.node0; Path=/; HttpOnly
+|     Expires: Thu, 01 Jan 1970 00:00:00 GMT
+|     Content-Type: text/html;charset=utf-8
+|     Content-Length: 0
+|   HTTPOptions: 
+|     HTTP/1.1 200 OK
+|     Date: Thu, 19 Aug 2021 07:53:15 GMT
+|     Set-Cookie: JSESSIONID=node01qom3cwsb4zyi1vefvizs5a7739.node0; Path=/; HttpOnly
+|     Expires: Thu, 01 Jan 1970 00:00:00 GMT
+|     Content-Type: text/html;charset=utf-8
+|     Allow: GET,HEAD,POST,OPTIONS
+|     Content-Length: 0
+|   RPCCheck: 
+|     HTTP/1.1 400 Illegal character OTEXT=0x80
+|     Content-Type: text/html;charset=iso-8859-1
+|     Content-Length: 71
+|     Connection: close
+|     <h1>Bad Message 400</h1><pre>reason: Illegal character OTEXT=0x80</pre>
+|   RTSPRequest: 
+|     HTTP/1.1 505 Unknown Version
+|     Content-Type: text/html;charset=iso-8859-1
+|     Content-Length: 58
+|     Connection: close
+|     <h1>Bad Message 505</h1><pre>reason: Unknown Version</pre>
+|   Socks4: 
+|     HTTP/1.1 400 Illegal character CNTL=0x4
+|     Content-Type: text/html;charset=iso-8859-1
+|     Content-Length: 69
+|     Connection: close
+|     <h1>Bad Message 400</h1><pre>reason: Illegal character CNTL=0x4</pre>
+|   Socks5: 
+|     HTTP/1.1 400 Illegal character CNTL=0x5
+|     Content-Type: text/html;charset=iso-8859-1
+|     Content-Length: 69
+|     Connection: close
+|_    <h1>Bad Message 400</h1><pre>reason: Illegal character CNTL=0x5</pre>
+| http-auth: 
+| HTTP/1.1 401 Unauthorized\x0D
+|_  Server returned status 401 but no WWW-Authenticate header.
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-title: Site doesn't have a title (text/html;charset=utf-8).
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port8080-TCP:V=7.91%I=7%D=8/19%Time=611E5823%P=x86_64-pc-linux-gnu%r(Ge
+SF:tRequest,F6,"HTTP/1\.1\x20401\x20Unauthorized\r\nDate:\x20Thu,\x2019\x2
+SF:0Aug\x202021\x2007:53:15\x20GMT\r\nSet-Cookie:\x20JSESSIONID=node01wmn1
+SF:qbzuesnm1nlrhn2gerb4j38\.node0;\x20Path=/;\x20HttpOnly\r\nExpires:\x20T
+SF:hu,\x2001\x20Jan\x201970\x2000:00:00\x20GMT\r\nContent-Type:\x20text/ht
+SF:ml;charset=utf-8\r\nContent-Length:\x200\r\n\r\n")%r(HTTPOptions,109,"H
+SF:TTP/1\.1\x20200\x20OK\r\nDate:\x20Thu,\x2019\x20Aug\x202021\x2007:53:15
+SF:\x20GMT\r\nSet-Cookie:\x20JSESSIONID=node01qom3cwsb4zyi1vefvizs5a7739\.
+SF:node0;\x20Path=/;\x20HttpOnly\r\nExpires:\x20Thu,\x2001\x20Jan\x201970\
+SF:x2000:00:00\x20GMT\r\nContent-Type:\x20text/html;charset=utf-8\r\nAllow
+SF::\x20GET,HEAD,POST,OPTIONS\r\nContent-Length:\x200\r\n\r\n")%r(RTSPRequ
+SF:est,AD,"HTTP/1\.1\x20505\x20Unknown\x20Version\r\nContent-Type:\x20text
+SF:/html;charset=iso-8859-1\r\nContent-Length:\x2058\r\nConnection:\x20clo
+SF:se\r\n\r\n<h1>Bad\x20Message\x20505</h1><pre>reason:\x20Unknown\x20Vers
+SF:ion</pre>")%r(FourOhFourRequest,F5,"HTTP/1\.1\x20401\x20Unauthorized\r\
+SF:nDate:\x20Thu,\x2019\x20Aug\x202021\x2007:53:16\x20GMT\r\nSet-Cookie:\x
+SF:20JSESSIONID=node0thukwfj1930d1i4g1q0l0564b40\.node0;\x20Path=/;\x20Htt
+SF:pOnly\r\nExpires:\x20Thu,\x2001\x20Jan\x201970\x2000:00:00\x20GMT\r\nCo
+SF:ntent-Type:\x20text/html;charset=utf-8\r\nContent-Length:\x200\r\n\r\n"
+SF:)%r(Socks5,C3,"HTTP/1\.1\x20400\x20Illegal\x20character\x20CNTL=0x5\r\n
+SF:Content-Type:\x20text/html;charset=iso-8859-1\r\nContent-Length:\x2069\
+SF:r\nConnection:\x20close\r\n\r\n<h1>Bad\x20Message\x20400</h1><pre>reaso
+SF:n:\x20Illegal\x20character\x20CNTL=0x5</pre>")%r(Socks4,C3,"HTTP/1\.1\x
+SF:20400\x20Illegal\x20character\x20CNTL=0x4\r\nContent-Type:\x20text/html
+SF:;charset=iso-8859-1\r\nContent-Length:\x2069\r\nConnection:\x20close\r\
+SF:n\r\n<h1>Bad\x20Message\x20400</h1><pre>reason:\x20Illegal\x20character
+SF:\x20CNTL=0x4</pre>")%r(RPCCheck,C7,"HTTP/1\.1\x20400\x20Illegal\x20char
+SF:acter\x20OTEXT=0x80\r\nContent-Type:\x20text/html;charset=iso-8859-1\r\
+SF:nContent-Length:\x2071\r\nConnection:\x20close\r\n\r\n<h1>Bad\x20Messag
+SF:e\x20400</h1><pre>reason:\x20Illegal\x20character\x20OTEXT=0x80</pre>");
+No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=7.91%E=4%D=8/19%OT=22%CT=1%CU=40922%PV=Y%DS=2%DC=T%G=Y%TM=611E585
+OS:7%P=x86_64-pc-linux-gnu)SEQ(SP=100%GCD=4%ISR=10F%TI=Z%CI=Z%II=I%TS=A)OPS
+OS:(O1=M54DST11NW7%O2=M54DST11NW7%O3=M54DNNT11NW7%O4=M54DST11NW7%O5=M54DST1
+OS:1NW7%O6=M54DST11)WIN(W1=FE88%W2=FE88%W3=FE88%W4=FE88%W5=FE88%W6=FE88)ECN
+OS:(R=Y%DF=Y%T=40%W=FAF0%O=M54DNNSNW7%CC=Y%Q=)T1(R=Y%DF=Y%T=40%S=O%A=S+%F=A
+OS:S%RD=0%Q=)T2(R=N)T3(R=N)T4(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T5(R
+OS:=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F
+OS:=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1(R=Y%DF=N%
+OS:T=40%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G%RUCK=G%RUD=G)IE(R=Y%DFI=N%T=40%CD
+OS:=S)
+
+Uptime guess: 30.085 days (since Tue Jul 20 16:39:04 2021)
+Network Distance: 2 hops
+TCP Sequence Prediction: Difficulty=256 (Good luck!)
+IP ID Sequence Generation: All zeros
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+TRACEROUTE (using port 199/tcp)
+HOP RTT       ADDRESS
+1   310.48 ms 10.10.14.1
+2   310.49 ms 10.10.10.250
+
+Read data files from: /usr/bin/../share/nmap
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Thu Aug 19 18:40:47 2021 -- 1 IP address (1 host up) scanned in 63.44 seconds

